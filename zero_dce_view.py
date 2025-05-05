@@ -47,7 +47,7 @@ if uploaded_image is not None:
         with col2:
             st.image(enhanced_img, caption=f"Enhanced image")
 
-        st.write(f"Waktu proses: {execution_time:.3f} detik")
+        st.write(f"Waktu proses: {execution_time} detik")
 
         metrics_data = pd.DataFrame({
             "Metrics": ["NIQE", "BRISQUE"],
