@@ -28,6 +28,9 @@ if uploaded_image is not None:
     with st.spinner("Processing...", show_time=True):
         # Load model dan enhance
         trainer = load_model()
+        start_time = time.time()
+        end_time = time.time()
+        execution_time = end_time - start_time
         image, enhanced_img = trainer.infer_cpu(uploaded_image, image_resize_factor=1)
 
         niqe = Niqe_score()
@@ -43,6 +46,8 @@ if uploaded_image is not None:
             st.image(uploaded_image, caption=f"Original image (low light)")
         with col2:
             st.image(enhanced_img, caption=f"Enhanced image")
+
+        st.write(f"Waktu proses: {execution_time:.3f} detik")
 
         metrics_data = pd.DataFrame({
             "Metrics": ["NIQE", "BRISQUE"],
