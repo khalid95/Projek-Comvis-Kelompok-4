@@ -54,4 +54,5 @@ if uploaded_image is not None:
         })
 
         # Tampilkan dengan st.dataframe
-        st.dataframe(metrics_data, use_container_width=True)
+        # st.dataframe(metrics_data, use_container_width=True)
+        st.dataframe(metrics_data.set_index(metrics_data.columns[0]))
