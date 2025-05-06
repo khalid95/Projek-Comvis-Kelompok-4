@@ -54,4 +54,4 @@ if uploaded_image is not None:
             "Before": [niqe_before, brisque_before],
             "After": [niqe_after, brisque_after]
         })
-        st.dataframe(metrics_data, use_container_width=True)
+        st.dataframe(metrics_data.set_index(metrics_data.columns[0]))
